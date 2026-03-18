@@ -27,38 +27,51 @@ const eyebrowPill: React.CSSProperties = {
 };
 
 function Logo({ size = 34 }: { size?: number }) {
+  const markW = size * 0.62;
+  const markH = size;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
-      {/* Mark: clean geometric lockmark, no container — just the shape */}
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      {/*
+        Mark: outline-only lock — no fill, no container box.
+        Pure strokes. Very thin, precise, premium.
+      */}
       <svg
-        width={size}
-        height={size}
-        viewBox="0 0 34 34"
+        width={markW}
+        height={markH}
+        viewBox="0 0 22 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Shackle — thick arc, rounded ends */}
+        {/* Shackle — clean U arc, thin stroke */}
         <path
-          d="M9 16V10.5C9 6.36 12.13 3 16 3h2c3.87 0 7 3.36 7 7.5V16"
+          d="M4 14V9.5a7 7 0 0 1 14 0V14"
           stroke={T.primary}
-          strokeWidth="3"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        {/* Lock body — solid, wide, architectural */}
-        <rect x="4" y="16" width="26" height="16" rx="5" fill={T.primary} />
-        {/* Keyhole — circle + notch, pure white */}
-        <circle cx="17" cy="24" r="2.6" fill="white" />
-        <rect x="15.7" y="24.8" width="2.6" height="3.4" rx="1.3" fill="white" />
+        {/* Lock body — OUTLINE only, no fill */}
+        <rect
+          x="1.5"
+          y="14"
+          width="19"
+          height="14"
+          rx="4"
+          stroke={T.primary}
+          strokeWidth="2"
+        />
+        {/* Keyhole — solid dot + notch */}
+        <circle cx="11" cy="21" r="2" fill={T.primary} />
+        <rect x="10" y="21.5" width="2" height="3" rx="1" fill={T.primary} />
       </svg>
 
-      {/* Wordmark: Syne, heavy weight, super tight tracking */}
+      {/* Wordmark: Syne 800, super tight */}
       <span
-        className="font-display"
         style={{
-          fontSize: size * 0.53,
-          fontWeight: 700,
-          letterSpacing: "-0.04em",
+          fontFamily: "var(--font-syne), system-ui, sans-serif",
+          fontSize: size * 0.52,
+          fontWeight: 800,
+          letterSpacing: "-0.05em",
           color: T.primary,
           lineHeight: 1,
         }}
