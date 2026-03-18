@@ -4,34 +4,34 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Cos'è un servizio di crypto custody?",
+    question: "What is a crypto custody service?",
     answer:
-      "La crypto custody è il servizio di custodia professionale di criptovalute. A differenza di un wallet personale o di un exchange, un custode professionale gestisce la sicurezza delle chiavi private con standard istituzionali.",
+      "Crypto custody is the professional safekeeping of cryptocurrencies. Unlike a personal wallet or exchange, a professional custodian manages private key security with institutional-grade standards.",
   },
   {
-    question: "DeepLock è un exchange?",
+    question: "Is DeepLock an exchange?",
     answer:
-      "No. DeepLock è esclusivamente un servizio di custodia. Non offriamo trading, non prestiamo i tuoi asset, non ti diamo consigli di investimento. Custodiamo e basta — con la massima serietà.",
+      "No. DeepLock is exclusively a custody service. We don't offer trading, we don't lend your assets, and we don't give investment advice. We custody — with maximum seriousness.",
   },
   {
-    question: "Come sono protette le mie criptovalute?",
+    question: "How are my cryptocurrencies protected?",
     answer:
-      "Cold storage air-gapped (mai connesso a internet), accesso multi-firma con più chiavi indipendenti. Infrastruttura certificata SOC1/SOC2 e coperta da assicurazione.",
+      "Air-gapped cold storage (never connected to the internet), multi-signature access requiring multiple independent keys. SOC1/SOC2 certified infrastructure with full insurance coverage.",
   },
   {
-    question: "Posso ritirare le mie crypto in qualsiasi momento?",
+    question: "Can I withdraw my crypto at any time?",
     answer:
-      "Sì. Le tue crypto sono sempre tue. Il processo di ritiro segue procedure di sicurezza standard che richiedono alcune ore lavorative.",
+      "Yes. Your crypto is always yours. The withdrawal process follows standard security procedures that take a few business hours to complete.",
   },
   {
-    question: "Come funziona il processo di verifica dell'identità?",
+    question: "How does identity verification work?",
     answer:
-      "Il KYC è obbligatorio per legge ed è gestito in modo semplice e digitale. Richiede un documento d'identità valido e pochi minuti.",
+      "KYC is legally required and handled digitally. It requires a valid ID and takes just a few minutes. It's guided, simple, and fully compliant with MiCA regulations.",
   },
   {
-    question: "Come funziona la copertura assicurativa?",
+    question: "How does the insurance coverage work?",
     answer:
-      "Il patrimonio custodito è coperto da una polizza assicurativa specifica per asset digitali. Siamo l'unico operatore italiano con questa copertura.",
+      "The custodied assets are covered by an insurance policy specific to digital assets. We are the only Italian operator with this coverage. Full details are available in our documentation.",
   },
 ];
 
@@ -57,13 +57,13 @@ export default function FAQ({
       <div className="mx-auto max-w-3xl">
         <div className="mb-16 text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest" style={{ color: accentLight }}>
-            Domande frequenti
+            FAQ
           </p>
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl" style={{ color: textPrimary }}>
-            Hai domande?
+            Have questions?
           </h2>
           <p className="mt-4 text-base" style={{ color: textSecondary }}>
-            Rispondiamo alle domande più comuni sulla custodia professionale di criptovalute.
+            Answers to the most common questions about professional crypto custody.
           </p>
         </div>
 

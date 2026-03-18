@@ -4,26 +4,20 @@ import { useState } from "react";
 
 interface WaitlistFormProps {
   buttonGradient?: string;
+  buttonTextColor?: string;
   accentBorder?: string;
   accentMuted?: string;
 }
 
 export default function WaitlistForm({
   buttonGradient = "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
+  buttonTextColor = "#ffffff",
   accentBorder = "rgba(99,102,241,0.25)",
   accentMuted = "rgba(99,102,241,0.1)",
 }: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const btnBg = (
-    typeof window !== "undefined"
-      ? getComputedStyle(document.documentElement).getPropertyValue("--btn-bg").trim() || buttonGradient
-      : buttonGradient
-  );
-  // Use CSS variable if set by parent theme, fallback to prop
-  const buttonStyle = { background: `var(--btn-bg, ${buttonGradient})` };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,10 +39,16 @@ export default function WaitlistForm({
         }}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M20 6L9 17L4 12" stroke="var(--accent-light, #818cf8)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M20 6L9 17L4 12"
+            stroke="var(--accent-light, #818cf8)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
         <span>
-          Perfetto. Ti contatteremo presto a{" "}
+          Done. We&apos;ll reach out soon at{" "}
           <span className="font-medium">{email}</span>.
         </span>
       </div>
@@ -61,7 +61,7 @@ export default function WaitlistForm({
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="La tua email"
+        placeholder="Your email"
         required
         className="flex-1 rounded-full px-5 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-all duration-200 focus:ring-2"
         style={{
@@ -72,10 +72,14 @@ export default function WaitlistForm({
       <button
         type="submit"
         disabled={loading}
-        className="rounded-full px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:opacity-90 disabled:opacity-60 whitespace-nowrap"
-        style={buttonStyle}
+        className="rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 hover:opacity-90 disabled:opacity-60 whitespace-nowrap"
+        style={{
+          background: `var(--btn-bg, ${buttonGradient})`,
+          color: buttonTextColor,
+          border: "1px solid rgba(255,255,255,0.12)",
+        }}
       >
-        {loading ? "..." : "Entra in lista d'attesa"}
+        {loading ? "..." : "Join the waitlist"}
       </button>
     </form>
   );

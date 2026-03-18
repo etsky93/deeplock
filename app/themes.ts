@@ -15,6 +15,7 @@ export interface Theme {
   card: { bg: string; border: string; blur: number };
   accent: { primary: string; light: string; muted: string };
   button: string;
+  buttonTextColor?: string;
   eyebrow: string;
   text: { primary: string; secondary: string; tertiary: string };
 }
@@ -113,7 +114,8 @@ export const themes: Theme[] = [
     ],
     card: { bg: "rgba(255,255,255,0.06)", border: "rgba(255,255,255,0.14)", blur: 40 },
     accent: { primary: "#ffffff", light: "#f4f4f5", muted: "rgba(255,255,255,0.08)" },
-    button: "rgba(255,255,255,0.14)",
+    button: "#f4f4f5",
+    buttonTextColor: "#0a0a0a",
     eyebrow: "#a1a1aa",
     text: { primary: "#ffffff", secondary: "#a1a1aa", tertiary: "#52525b" },
   },
