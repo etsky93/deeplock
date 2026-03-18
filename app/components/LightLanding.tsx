@@ -39,18 +39,18 @@ function Logo() {
           fill={T.primary}
         />
       </svg>
-      {/* Wordmark */}
+      {/* Wordmark — Luxury Caps */}
       <span
         style={{
           fontFamily: "var(--font-syne), system-ui, sans-serif",
-          fontSize: 17,
-          letterSpacing: "-0.045em",
+          fontSize: 13,
+          letterSpacing: "0.16em",
           lineHeight: 1,
-          color: T.primary,
+          textTransform: "uppercase",
         }}
       >
-        <span style={{ fontWeight: 300 }}>Deep</span>
-        <span style={{ fontWeight: 800 }}>Lock</span>
+        <span style={{ fontWeight: 300, color: T.primary }}>Deep</span>
+        <span style={{ fontWeight: 700, color: T.primary }}>Lock</span>
       </span>
     </div>
   );
