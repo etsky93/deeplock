@@ -26,58 +26,20 @@ const eyebrowPill: React.CSSProperties = {
   color: T.secondary,
 };
 
-function Logo({ size = 34 }: { size?: number }) {
-  const markW = size * 0.62;
-  const markH = size;
+/* Pure typographic wordmark — inspired by disdici.com.
+   No icon, no container. "Deep" thin + "Lock" heavy = designed tension. */
+function Logo() {
+  const base: React.CSSProperties = {
+    fontFamily: "var(--font-syne), system-ui, sans-serif",
+    fontSize: 17,
+    letterSpacing: "-0.045em",
+    lineHeight: 1,
+    color: T.primary,
+  };
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-      {/*
-        Mark: outline-only lock — no fill, no container box.
-        Pure strokes. Very thin, precise, premium.
-      */}
-      <svg
-        width={markW}
-        height={markH}
-        viewBox="0 0 22 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Shackle — clean U arc, thin stroke */}
-        <path
-          d="M4 14V9.5a7 7 0 0 1 14 0V14"
-          stroke={T.primary}
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {/* Lock body — OUTLINE only, no fill */}
-        <rect
-          x="1.5"
-          y="14"
-          width="19"
-          height="14"
-          rx="4"
-          stroke={T.primary}
-          strokeWidth="2"
-        />
-        {/* Keyhole — solid dot + notch */}
-        <circle cx="11" cy="21" r="2" fill={T.primary} />
-        <rect x="10" y="21.5" width="2" height="3" rx="1" fill={T.primary} />
-      </svg>
-
-      {/* Wordmark: Syne 800, super tight */}
-      <span
-        style={{
-          fontFamily: "var(--font-syne), system-ui, sans-serif",
-          fontSize: size * 0.52,
-          fontWeight: 800,
-          letterSpacing: "-0.05em",
-          color: T.primary,
-          lineHeight: 1,
-        }}
-      >
-        DeepLock
-      </span>
+    <div style={{ display: "flex", alignItems: "baseline" }}>
+      <span style={{ ...base, fontWeight: 300 }}>Deep</span>
+      <span style={{ ...base, fontWeight: 800 }}>Lock</span>
     </div>
   );
 }
@@ -110,7 +72,7 @@ export default function LightLanding() {
             borderBottom: "1px solid rgba(0,0,0,0.07)",
           }}
         >
-          <Logo size={30} />
+          <Logo />
           <a
             href="#waitlist"
             className="rounded-full px-5 py-2 text-sm font-medium text-white transition-all duration-200 hover:opacity-80"
@@ -405,7 +367,7 @@ export default function LightLanding() {
             <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
               <div>
                 <div className="mb-3">
-                  <Logo size={28} />
+                  <Logo />
                 </div>
                 <p className="mt-3 max-w-xs text-sm leading-relaxed" style={{ color: T.tertiary }}>
                   Professional cryptocurrency custody for individuals and businesses. A Moneyside service.
