@@ -29,17 +29,29 @@ const eyebrowPill: React.CSSProperties = {
 /* Pure typographic wordmark — inspired by disdici.com.
    No icon, no container. "Deep" thin + "Lock" heavy = designed tension. */
 function Logo() {
-  const base: React.CSSProperties = {
-    fontFamily: "var(--font-syne), system-ui, sans-serif",
-    fontSize: 17,
-    letterSpacing: "-0.045em",
-    lineHeight: 1,
-    color: T.primary,
-  };
   return (
-    <div style={{ display: "flex", alignItems: "baseline" }}>
-      <span style={{ ...base, fontWeight: 300 }}>Deep</span>
-      <span style={{ ...base, fontWeight: 800 }}>Lock</span>
+    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      {/* Shield mark — viewBox cropped to shield bounds */}
+      <svg width="21" height="24" viewBox="14 14 44 48" fill="none">
+        <path
+          fillRule="evenodd"
+          d="M17 18 L55 18 L55 38 Q55 56 36 60 Q17 56 17 38 Z M22 23 L50 23 L50 38 Q50 51 36 55 Q22 51 22 38 Z"
+          fill={T.primary}
+        />
+      </svg>
+      {/* Wordmark */}
+      <span
+        style={{
+          fontFamily: "var(--font-syne), system-ui, sans-serif",
+          fontSize: 17,
+          letterSpacing: "-0.045em",
+          lineHeight: 1,
+          color: T.primary,
+        }}
+      >
+        <span style={{ fontWeight: 300 }}>Deep</span>
+        <span style={{ fontWeight: 800 }}>Lock</span>
+      </span>
     </div>
   );
 }
