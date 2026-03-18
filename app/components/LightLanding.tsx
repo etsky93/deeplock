@@ -26,43 +26,41 @@ const eyebrowPill: React.CSSProperties = {
   color: T.secondary,
 };
 
-function Logo({ size = 32 }: { size?: number }) {
-  const s = size;
-  const iconSize = Math.round(s * 0.5);
+function Logo({ size = 34 }: { size?: number }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-      {/* Lock mark — black square with white lock */}
-      <div
-        style={{
-          width: s,
-          height: s,
-          borderRadius: Math.round(s * 0.28),
-          background: T.primary,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-        }}
+    <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
+      {/* Mark: clean geometric lockmark, no container — just the shape */}
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 34 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg width={iconSize} height={iconSize} viewBox="0 0 16 16" fill="none">
-          <path
-            d="M4.5 7.5V5.5a3.5 3.5 0 0 1 7 0v2"
-            stroke="white"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <rect x="2.5" y="7.5" width="11" height="7" rx="2.2" fill="white" />
-          <circle cx="8" cy="11" r="1.1" fill={T.primary} />
-          <rect x="7.5" y="11.5" width="1" height="1.8" rx="0.5" fill={T.primary} />
-        </svg>
-      </div>
+        {/* Shackle — thick arc, rounded ends */}
+        <path
+          d="M9 16V10.5C9 6.36 12.13 3 16 3h2c3.87 0 7 3.36 7 7.5V16"
+          stroke={T.primary}
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {/* Lock body — solid, wide, architectural */}
+        <rect x="4" y="16" width="26" height="16" rx="5" fill={T.primary} />
+        {/* Keyhole — circle + notch, pure white */}
+        <circle cx="17" cy="24" r="2.6" fill="white" />
+        <rect x="15.7" y="24.8" width="2.6" height="3.4" rx="1.3" fill="white" />
+      </svg>
+
+      {/* Wordmark: Syne, heavy weight, super tight tracking */}
       <span
+        className="font-display"
         style={{
-          fontSize: 16,
-          fontWeight: 600,
-          letterSpacing: "-0.02em",
+          fontSize: size * 0.53,
+          fontWeight: 700,
+          letterSpacing: "-0.04em",
           color: T.primary,
+          lineHeight: 1,
         }}
       >
         DeepLock
@@ -121,17 +119,17 @@ export default function LightLanding() {
             </div>
 
             <h1
-              className="mb-6 text-5xl font-bold md:text-7xl"
-              style={{ lineHeight: "1.06", letterSpacing: "-0.03em", color: T.primary }}
+              className="font-display mb-6 text-5xl font-bold md:text-7xl"
+              style={{ lineHeight: "1.04", letterSpacing: "-0.04em", color: T.primary }}
             >
               Your crypto.
               <br />
-              <span style={{ color: T.secondary }}>Safe. Always.</span>
+              <span style={{ color: T.secondary, fontWeight: 400 }}>Safe. Always.</span>
             </h1>
 
             <p
               className="mx-auto mb-10 max-w-xl text-lg leading-relaxed"
-              style={{ color: T.secondary }}
+              style={{ color: T.secondary, fontWeight: 300 }}
             >
               DeepLock provides institutional-grade custody for individuals and businesses.
               Cold storage, multi-signature, and insurance coverage — accessible to everyone.
@@ -171,7 +169,7 @@ export default function LightLanding() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
               <p className="mb-4 text-xs font-medium uppercase tracking-widest" style={{ color: T.secondary }}>How it works</p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-5xl" style={{ letterSpacing: "-0.03em", color: T.primary }}>Three steps to security</h2>
+              <h2 className="font-display text-4xl font-bold md:text-5xl" style={{ letterSpacing: "-0.04em", color: T.primary }}>Three steps to security</h2>
               <p className="mx-auto mt-4 max-w-lg text-base" style={{ color: T.secondary }}>
                 We&apos;ve removed every complexity. Securing your crypto shouldn&apos;t require a technical manual.
               </p>
@@ -202,7 +200,7 @@ export default function LightLanding() {
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">{step.icon}</svg>
                     </div>
                   </div>
-                  <h3 className="mb-3 text-xl font-semibold" style={{ letterSpacing: "-0.02em", color: T.primary }}>{step.title}</h3>
+                  <h3 className="font-display mb-3 text-xl font-semibold" style={{ letterSpacing: "-0.03em", color: T.primary }}>{step.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: T.secondary }}>{step.desc}</p>
                 </div>
               ))}
@@ -215,7 +213,7 @@ export default function LightLanding() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
               <p className="mb-4 text-xs font-medium uppercase tracking-widest" style={{ color: T.secondary }}>Why DeepLock</p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-5xl" style={{ letterSpacing: "-0.03em", color: T.primary }}>Not all custodians are equal</h2>
+              <h2 className="font-display text-4xl font-bold md:text-5xl" style={{ letterSpacing: "-0.04em", color: T.primary }}>Not all custodians are equal</h2>
               <p className="mx-auto mt-4 max-w-lg text-base" style={{ color: T.secondary }}>
                 We built DeepLock on infrastructure already trusted by institutions, made accessible to everyone.
               </p>
@@ -232,7 +230,7 @@ export default function LightLanding() {
               ].map((f) => (
                 <div key={f.t} className="rounded-2xl p-7 transition-all duration-300 hover:scale-[1.01]" style={card}>
                   <div className="mb-4 h-px w-8" style={{ background: `linear-gradient(90deg, ${T.primary}, transparent)` }} />
-                  <h3 className="mb-2.5 text-base font-semibold" style={{ letterSpacing: "-0.02em", color: T.primary }}>{f.t}</h3>
+                  <h3 className="font-display mb-2.5 text-base font-semibold" style={{ letterSpacing: "-0.03em", color: T.primary }}>{f.t}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: T.secondary }}>{f.d}</p>
                 </div>
               ))}
@@ -245,7 +243,7 @@ export default function LightLanding() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
               <p className="mb-4 text-xs font-medium uppercase tracking-widest" style={{ color: T.secondary }}>Who it&apos;s for</p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-5xl" style={{ letterSpacing: "-0.03em", color: T.primary }}>
+              <h2 className="font-display text-4xl font-bold md:text-5xl" style={{ letterSpacing: "-0.04em", color: T.primary }}>
                 Custody for everyone.<br />
                 <span style={{ color: T.tertiary }}>No compromises.</span>
               </h2>
@@ -272,7 +270,7 @@ export default function LightLanding() {
                     style={{ background: "radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 70%)", filter: "blur(16px)" }}
                   />
                   <div className="mb-6 inline-block rounded-full px-3 py-1 text-xs font-medium" style={eyebrowPill}>{who.label}</div>
-                  <h3 className="mb-4 text-2xl font-bold" style={{ letterSpacing: "-0.025em", color: T.primary }}>{who.headline}</h3>
+                  <h3 className="font-display mb-4 text-2xl font-bold" style={{ letterSpacing: "-0.04em", color: T.primary }}>{who.headline}</h3>
                   <p className="mb-6 text-sm leading-relaxed" style={{ color: T.secondary }}>{who.desc}</p>
                   <ul className="space-y-3">
                     {who.items.map((item) => (
@@ -295,7 +293,7 @@ export default function LightLanding() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
               <p className="mb-4 text-xs font-medium uppercase tracking-widest" style={{ color: T.secondary }}>Security</p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-5xl" style={{ letterSpacing: "-0.03em", color: T.primary }}>Your crypto is invisible to hackers</h2>
+              <h2 className="font-display text-4xl font-bold md:text-5xl" style={{ letterSpacing: "-0.04em", color: T.primary }}>Your crypto is invisible to hackers</h2>
               <p className="mx-auto mt-4 max-w-lg text-base" style={{ color: T.secondary }}>
                 The same standards used by the world&apos;s leading institutional funds.
               </p>
@@ -316,7 +314,7 @@ export default function LightLanding() {
                   </div>
                   <div>
                     <div className="mb-0.5 text-xs font-medium" style={{ color: T.secondary }}>{p.sub}</div>
-                    <h3 className="mb-2 text-lg font-semibold" style={{ letterSpacing: "-0.02em", color: T.primary }}>{p.t}</h3>
+                    <h3 className="font-display mb-2 text-lg font-semibold" style={{ letterSpacing: "-0.03em", color: T.primary }}>{p.t}</h3>
                     <p className="text-sm leading-relaxed" style={{ color: T.secondary }}>{p.d}</p>
                   </div>
                 </div>
@@ -368,7 +366,7 @@ export default function LightLanding() {
               <div className="pointer-events-none absolute -bottom-16 -right-16 h-64 w-64 rounded-full" style={{ background: "radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 70%)", filter: "blur(24px)" }} />
               <div className="relative z-10">
                 <p className="mb-4 text-xs font-medium uppercase tracking-widest" style={{ color: T.secondary }}>Early access</p>
-                <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl" style={{ letterSpacing: "-0.03em", color: T.primary }}>
+                <h2 className="font-display mb-4 text-4xl font-bold md:text-5xl" style={{ letterSpacing: "-0.04em", color: T.primary }}>
                   Ready to custody the right way?
                 </h2>
                 <p className="mx-auto mb-10 max-w-md text-base" style={{ color: T.secondary }}>
